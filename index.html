@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+
+  <body>
+
+    <div class="top">
+      <!---<img src="yin-yang-heart.png" alt="logo" style="max-width: 200px; max-height: 200px; margin-top: 5%;"> -->
+      <h1>Pink Food Diary</h1>
+    </div>
+
+
+    <div class="box">
+      <!-- create a user -->
+      <div class="creating">
+        <h3>CREATE NEW ACCOUNT</h3>
+        <form class="create_user">
+          <label for="username">Username</label>
+          <input type="text" name="username" placeholder="username" />
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="password" />
+          <label for="email">Email</label>
+          <input type="email" name="email" placeholder="example@email.com" />
+          <input name="submit" type="submit" value="Create user" class="submit_user" />
+        </form>
+      </div>
+
+
+      <div class="login">
+      <h3>LOGIN</h3>
+      <div>
+        <form class="login_user">
+          <label for="username">Username</label>
+          <input type="text" name="username" placeholder="username" />
+          <label for="password">Password</label>
+          <input type="password" name="password" placeholder="password" />
+          <input name="submit" type="submit" value="Login" class="loginuser" />
+        </form>
+        <br />
+      </div>
+    </div>
+
+      <!-- Success Entry Popup -->
+  <div id="successOverlay">
+    <div id="successPopup">
+      <span id="closeSuccess" class="close">&times;</span>
+              <h4>Successfully registered!</h4>
+          </div>
+      </div>
+
+    
+  <div class="hidden">
+    <pre><code>
+      # Get user info by token (requires token)
+      GET http://localhost:3000/api/auth/me
+      Authorization: Bearer (put-user-token-here)</code></pre>
+    <button id="meRequest">Make an "authenticated" request</button>
+    <br />
+    <h5>USER INFO:</h5>
+    <div id="meResponse"></div>
+  </div>
+
+  <h3 class="hidden">Local Storage</h3>
+    <div class="hidden">
+      <button id="clearButton">Clear localStorage</button>
+      <br />
+      <code id="clearResponse"></code>
+    </div>
+
+    <script type="module" src="/index.js"></script>
+
+  </body>
+</html>

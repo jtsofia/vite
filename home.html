@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <ul class="navigation">
+      <li style="float: right" class="activelogout"><a href="">Logout</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <li><a href="#home" class="home">Home</a></li>
+      <li style="float: left" class="activelogout"><a href="">Logout</a></li>
+  </div>
+
+
+  <div id="bottom">
+    <h2>Welcome <span id="username">NAME</span> to keeping track of what foods you're eating.</h2>
+
+
+    <div class="choose">
+      <h3>Make a new entry or see past entries</h3>
+      <div class="button-group">
+          <button class="new">make a new entry</button>
+          <button class="past">see past entries</button>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Overlay for the popup -->
+    <div id="overlay"></div>
+
+    <!-- Popup -->
+    <div id="popup">
+        <span class="closePopup" id="closePopup">&times;</span>
+        <form class="entry_form">
+          <label for="entry_date">Entry Date</label>
+          <input type="date" id="entry_date" name="entry_date" required><br>
+      
+          <label for="meal">Meal</label>
+          <select id="meal" name="meal" required>
+            <option value="">Choose one</option>
+            <option value="breakfast">breakfast</option>
+            <option value="lunch">lunch</option>
+            <option value="dinner">dinner</option>
+            <option value="snack">snack</option>
+          </select><br>
+      
+          <label for="calories">Calories</label>
+          <input type="number" id="calories" name="calories" min="0" required><br>
+
+          <label for="foodname">Food Name</label>
+          <input type="text" id="foodname" name="foodname" required><br>
+      
+          <label for="notes">Other notes</label>
+          <textarea id="notes" name="notes" rows="4" required></textarea><br>
+      
+          <!-- <label for="submit" class="hiddentext">'</label> -->
+          <input name="submit" type="submit" value="submit" class="createEntry"/>
+        </form>
+    </div>
+
+    <script type="module" src="/home.js"></script>
+
+  </body>
+</html>

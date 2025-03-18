@@ -1,0 +1,435 @@
+/* General */
+:root {
+    font-family: 'Courier New', Courier, monospace; /* Retro font */
+    line-height: 1.6;
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 16px;
+    background-color: #d394a6;
+    background-image: url(backg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed; 
+    overflow-y: scroll; 
+}
+
+#bottom {
+    background-color: rgba(226, 192, 217, 0.549); /*rgb(255,244,230, 0.6);*/
+    border-radius: 20px;
+    margin: 20px;
+    padding: 20px;
+}
+
+/* Navigation */
+.hamburger {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #b75d76;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #b85680;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #fff4e6;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: #fff4e6;
+    border-radius: 10px;
+}
+
+li a:hover:not(.active) {
+    background-color:#c86a92;
+    border-radius: 10px;
+}
+
+.active {
+    background-color: black;
+}
+
+/* CSS rules for phone view */
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .navigation {
+        display : none;
+    }
+    .hamburger {
+        display: block;
+    }
+    
+}
+
+
+/* Headings */
+h2 {
+    margin: 60px;
+    text-align: center;
+    font-size: 40px;
+    color:  rgb(48, 8, 30); /*#a23956;*/
+    border-radius: 20px;
+}
+
+.user {
+    margin: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+    color:  rgb(48, 8, 30);
+}
+
+
+/* Entries table */
+.tableWrapper {
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.entriesTable {
+    width: 100%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #fff4e6;
+    border-radius: 20px;
+    box-shadow: 0 0 100px #fff4e6(0, 0, 0, 1);
+}
+
+.entriesTable th,
+.entriesTable td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+.entriesTable th {
+    background-color: #cb5f8e;
+    color: #fff4e6;
+    font-weight: 200;
+    font-size: 18px;
+}
+
+.entriesTable tr {
+    font-weight: 100;
+    font-size: 15px;
+    color: #cb5f8e;
+}
+
+.tableBody {
+    text-align: center;
+    font-weight: bold;
+}
+
+.entriesTable th:nth-child(5),
+.entriesTable td:nth-child(5) {
+    max-width: 200px;
+    /* Adjust the maximum width as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* Edit popup */
+.editEntries {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding-top: 40px;
+    color: rgb(48, 8, 30);
+    margin: 30px;
+}
+
+.editEntries h3 {
+    margin: 10px 30px;
+}
+
+.editEntries button {
+    cursor: pointer;
+    padding: 15px 28px;
+    border: 2px solid #c05876;
+    border-radius: 17px;
+    background-color: #cb5f8e;
+    color: #fff4e6;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bolder;
+}
+
+.editEntries button:focus {
+    outline: none;
+}
+
+.editEntries button:hover {
+    background-color: #da80a7;
+    border: 2px solid #fff4e6;
+}
+
+
+/* Delete popup */
+#deleteOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#deletePopup {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #eab2c2;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 3c2f2f(0, 0, 0, 0.3);
+    display: none;
+}
+
+.deleteForm {
+    background: #eab2c2;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff4e6;
+    text-align: center;
+}
+
+h4 {
+    margin: 40px;
+    text-align: center;
+    font-size: 22px;
+    color: #fff4e6;
+    font-weight: 500;
+}
+
+.closeDelete {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 10px;
+    color: #fff4e6;
+}
+
+
+
+.deleteForm input[type="number"] {
+    width: 20%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff4e6;
+    outline: none;
+}
+
+.deleteForm input[type="submit"] {
+    width: 50%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cb5f8e;
+    color: #fff4e6;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deleteForm input[type="submit"]:hover {
+    background-color: #fff4e6;
+    color: #b75d76;
+}
+
+/* Edit popup */
+#editOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#editPopup {
+    position: fixed;
+    z-index: 1000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ebbbc9;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 3c2f2f(0, 0, 0, 0.3);
+    display: none;
+}
+
+.editForm {
+    background: #ebbbc9;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff4e6;
+    text-align: center;
+}
+
+#editId {
+    width: 20%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff4e6;
+    outline: none;
+}
+
+.closeEdit {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    padding: 10px;
+    color: #fff4e6;
+}
+
+.editForm input[type="text"],
+.editForm input[type="number"],
+.editForm select,
+.editForm textarea {
+    width: calc(100% - 12px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff4e6;
+    outline: none;
+}
+
+.editForm input[type="submit"] {
+    width: 50%;
+    margin-top: 20px;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #cb5f8e;
+    color: #fff4e6;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.editForm input[type="submit"]:hover {
+    background-color: #fff4e6;
+    color: #b75d76;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: 3c2f2f(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #ebbbc9;
+    color: #fff4e6;
+    margin: 10% auto;
+    padding: 20px;
+    border: none;
+    width: 70%;
+    max-width: 500px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 3c2f2f(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.modal input[type="text"],
+.modal input[type="date"],
+.modal input[type="number"],
+.modal select,
+.modal textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff4e6;
+    outline: none;
+}
+
+.modal input[type="submit"] {
+    width: 30%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #cb5f8e;
+    color: #fff4e6;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal input[type="submit"]:hover {
+    background-color: #fff4e6;
+}
+
+.closeDelete,
+.closeEdit,
+.closeModal {
+    float: right;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.closeDelete:hover,
+.closeEdit:hover,
+.closeModal:hover {
+    color: #b75d76;
+}

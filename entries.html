@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" snack="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+</head>
+
+<body>
+    <ul class="navigation">
+            <li><a href="#home" class="home">Home</a></li>
+            <li style="float: right" class="activelogout"><a href="">Logout</a></li>
+    </ul>
+
+    <div class="hamburger">
+        <li><a href="#home" class="home">Home</a></li>
+        <li style="float: right" class="activelogout"><a href="">Logout</a></li>
+    </div>
+
+    <div id="bottom">
+
+        <h2>Welcome <span id="username">NAME</span> </h2>
+        <div class="user">
+            Here are your past entries
+        </div>
+
+        <div class="tableWrapper">
+            <table class="entriesTable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Meal</th>
+                        <th>Calories</th>
+                        <th>Food Type</th>
+                        <th>Notes</th>
+                        <th>ID</th>
+                    </tr>
+                </thead>
+                <tbody class="tableBody">
+                    <!-- tänne haetaan kaikki merkinnät -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="editEntries">
+            <div class="editEntry">
+                <h3>Edit an entry</h3>
+                <button class="editBtn">edit</button>
+            </div>
+            <div class="deleteEntry">
+                <h3>Delete an entry</h3>
+                <button class="deleteBtn">delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deletepopup-->
+    <div id="deleteOverlay"></div>
+    <div id="deletePopup">
+        <span class="closeDelete" id="closeDelete">&times;</span>
+        <form class="deleteForm">
+            <h4>What entry are we <br> deleting today?</h4>
+            <label for="deleteId">Entry id: </label>
+            <input type="number" id="deleteId" name="deleteId" min="0" required><br>
+            <input name="submit" type="submit" value="submit" class="submitDelete" />
+        </form>
+    </div>
+
+    <!-- Edit popup -->
+    <div id="editOverlay"></div>
+    <div id="editPopup">
+        <span class="closeEdit" id="closeEdit">&times;</span>
+        <form class="editForm">
+            <h4>What entry are we <br> editing today?</h4>
+            <label for="editId">Select by id:</label>
+            <input type="number" id="editId" name="editId" min="0" required><br>
+            <input name="submit" type="submit" value="submit" class="submitEdit" />
+        </form>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-snack">
+            <span class="closeModal">&times;</span>
+            <!-- Edit Entry Form -->
+            <form class="editEntryForm" id="editEntryForm">
+                <h4>Edit Entry</h4>
+                <label for="editMeal">Meal</label>
+                <select id="editMeal" name="Meal" required>
+                    <option value="">Choose one</option>
+                    <option value="breakfast">breakfast</option>
+                    <option value="lunch">lunch</option>
+                    <option value="dinner">dinner</option>
+                    <option value="snack">snack</option>
+                </select><br>
+
+                <label for="editCalories">Calories</label>
+                <input type="number" id="editCalories" name="Calories" min="0" required><br>
+
+                <label for="editFoodName">Food Name</label>
+                <textarea id="editFoodName" name="FoodName" rows="1" required></textarea><br>
+
+                <label for="editNotes">Notes</label>
+                <textarea id="editNotes" name="Notes" rows="4" required></textarea><br>
+                <input name="submit" type="submit" value="submit" class="saveEntries" />
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="/entries.js"></script>
+
+</body>
+
+</html>
